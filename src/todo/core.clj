@@ -7,6 +7,7 @@
 
 (defroutes app
            (GET "/" [] "<iframe src=\"//giphy.com/embed/l0t2DBLGpsd4A\" width=\"480\" height=\"597\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen></iframe><p><a href=\"http://giphy.com/gifs/please-construction-patient-l0t2DBLGpsd4A\">via GIPHY</a></p>")
+           (GET "/about" [] "<h1>About</h1><h2>This project is about getting stuff done!</h2>")
            (route/not-found "<h1>Page not found</h1>"))
 
 (defn -main [port]
