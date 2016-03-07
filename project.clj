@@ -8,7 +8,8 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [compojure "1.4.0"]
                  [org.clojure/java.jdbc "0.4.2"]
-                 [postgresql/postgresql "9.1-901-1.jdbc4"]]
+                 [postgresql/postgresql "9.1-901-1.jdbc4"]
+                 [hiccup "1.0.5"]]
 
   :main todo.core
   :profiles {:uberjar {:omit-source  true

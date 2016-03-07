@@ -1,5 +1,6 @@
 (ns todo.core
-  (:require [todo.model :as model])
+  (:require [todo.model :as model]
+            [todo.views :as views])
   (:require [compojure.core :refer [GET defroutes]]
             [compojure.route :as route]
             [ring.adapter.jetty :as jetty]
@@ -8,8 +9,14 @@
 
 (def db "jdbc:postgresql://localhost/todos")
 
+(let []
+  (when (nil? (model/get-todos db))
+    (do
+      (model/add-todo! db "foo" "desc 1")
+      (model/add-todo! db "bar" "desc 2"))))
+
 (defroutes app
-           (GET "/" [] "<iframe src=\"//giphy.com/embed/l0t2DBLGpsd4A\" width=\"480\" height=\"597\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen></iframe><p><a href=\"http://giphy.com/gifs/please-construction-patient-l0t2DBLGpsd4A\">via GIPHY</a></p>")
+           (GET "/" [] (views/index (model/get-todos db)))
            (GET "/about" [] "<h1>About</h1><h2>This project is about getting stuff done!</h2>")
            (route/not-found "<h1>Page not found</h1>"))
 
