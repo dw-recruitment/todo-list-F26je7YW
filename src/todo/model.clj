@@ -48,3 +48,8 @@
        ["DELETE FROM todos
          WHERE id = ?"
         id])))
+
+(defn delete-all [db]
+  (db/execute!
+    db
+    ["DELETE FROM todos"]))
