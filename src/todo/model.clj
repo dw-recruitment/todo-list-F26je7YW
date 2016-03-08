@@ -30,3 +30,13 @@
     ["SELECT id, name, description, checked, date_created
     FROM todos
     ORDER BY date_created"]))
+
+(defn update-todo [db id checked]
+  (= [1]
+     (db/execute!
+       db
+       ["UPDATE todos
+       SET checked = ?
+       WHERE id = ?"
+        checked
+        id])))
