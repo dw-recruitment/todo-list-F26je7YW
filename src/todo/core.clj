@@ -1,7 +1,7 @@
 (ns todo.core
   (:require [todo.model :as model]
             [todo.views :as views])
-  (:require [compojure.core :refer [GET POST PUT defroutes]]
+  (:require [compojure.core :refer [GET POST PUT DELETE defroutes]]
             [compojure.route :as route]
             [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -38,10 +38,22 @@
        :headers {"Content-Type" "text/plain"}
        :body "no can do!"})))
 
+(defn handle-delete-todo [req]
+  (let [id (java.util.UUID/fromString (get-in req [:params "id"]))
+        transaction (model/delete-item db id)]
+    (if transaction
+      {:status 200
+       :headers {"Content-Type" "text/plain"}
+       :body (str id)}
+      {:status 400
+       :headers {"Content-Type" "text/plain"}
+       :body "no can do!"})))
+
 (defroutes app-routes
            (GET "/" [] (views/index (model/get-todos db)))
            (POST "/add-new-todo" [] handle-post-new-todo)
            (PUT "/update-todo" [] handle-update-todo)
+           (DELETE "/delete-todo" [] handle-delete-todo)
            (GET "/about" [] "<h1>About</h1><h2>This project is about getting stuff done!</h2>")
            (route/not-found "<h1>Page not found</h1>"))
 (def app

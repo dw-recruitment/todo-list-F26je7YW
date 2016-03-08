@@ -40,3 +40,11 @@
        WHERE id = ?"
         checked
         id])))
+
+(defn delete-item [db id]
+  (= [1]
+     (db/execute!
+       db
+       ["DELETE FROM todos
+         WHERE id = ?"
+        id])))
