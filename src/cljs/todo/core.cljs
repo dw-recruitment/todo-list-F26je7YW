@@ -5,10 +5,13 @@
             [goog.events :as events]
             [goog.history.EventType :as HistoryEventType]
             [markdown.core :refer [md->html]]
-            [ajax.core :refer [GET POST]])
+            [ajax.core :refer [GET POST PUT DELETE]]
+            [todo.ajax :refer [load-interceptors!]])
   (:import goog.History))
 
 (enable-console-print!)
+
+(def app-state (r/atom nil))
 
 (defn nav-link [uri title page collapsed?]
   [:ul.nav.navbar-nav>a.navbar-brand
@@ -16,6 +19,11 @@
     :href     uri
     :on-click #(reset! collapsed? true)}
    title])
+
+(defn refresh-app-state! []
+  (GET "/get-all-todos" {:handler         #(reset! app-state (:data %))
+                         :response-format :json
+                         :keywords?       true}))
 
 (defn navbar []
   (let [collapsed? (r/atom true)]
@@ -32,16 +40,22 @@
 
 (defn new-todo-form-component []
   [:div.form-group
-   [:form {:class  "form-inline"
+   [:form {:class  "form-inline add-form"
            :action "/add-new-todo" :method "POST"}
     [:p [:input {:type "text" :name "name" :placeholder "title"}]
      [:input {:type "text" :name "description" :placeholder "description"}]
      [:button.btn.btn-primary.btn-sm
-      {:href "#"} "Add"]]]])
+      {:type    "button"
+       :onClick #(POST "/add-new-todo"
+                       {:body    (js/FormData. (.querySelector js/document "form"))
+                        :handler (fn []
+                                   (refresh-app-state!)
+                                   (.reset (.querySelector js/document "form"))
+                                   )})} "Add"]]]])
 
-(defn todos-component [todos]
+(defn todos-component []
   [:ul
-   (for [t todos]
+   (for [t @app-state]
      ^{:key (:id t)}
      [:li {:id    (:id t)
            :class (if (:checked t)
@@ -53,14 +67,18 @@
                 :data-id  (:id t)
                 :checked  (:checked t)
                 :onChange (fn [e]
-                            (print e))}]]
+                            (PUT "/update-todo" {:handler #(refresh-app-state!)
+                                                 :params  {:id      (:id t)
+                                                           :checked (.-checked (.-target e))}}))}]]
       [:span
        [:b (:name t)] " : "
-       [:em (:description t)]]
+       [:em (:description t)] " "]
       [:button.btn.btn-sm.btn-danger.delete
        {:type    "button"
-        :data-id (:id t)} "x"]])])
-
+        :data-id (:id t)
+        :onClick #(DELETE "/delete-todo"
+                          {:params  {:id (:id t)}
+                           :handler (fn [] (refresh-app-state!))})} "x"]])])
 
 (defn about-page []
   [:div.container
@@ -69,19 +87,16 @@
      "This project is about getting stuff done!"]]])
 
 (defn home-page []
-  (let [todos (r/atom nil)]
+  (let []
     (r/create-class
-      {:component-did-mount (fn []
-                              (GET "/get-all-todos" {:handler         #(reset! todos (:data %))
-                                                     :response-format :json
-                                                     :keywords?       true}))
+      {:component-did-mount #(refresh-app-state!)
        :reagent-render      (fn []
                               [:div.container
                                [:div.jumbotron
                                 [:h1 "What needs to be done?"]
                                 [:p "Use the form to add a new todo item:"]
                                 [new-todo-form-component]
-                                [todos-component @todos]]])})))
+                                [todos-component]]])})))
 
 (def pages
   {:home  #'home-page
@@ -118,5 +133,6 @@
   (r/render [#'page] (.getElementById js/document "app")))
 
 (defn init! []
+  (load-interceptors!)
   (hook-browser-navigation!)
   (mount-components))
