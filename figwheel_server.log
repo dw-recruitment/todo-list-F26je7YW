@@ -1,0 +1,165 @@
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.482 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: Map literal must contain an even number of forms on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 17, column 41
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.205 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.272 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.746 seconds.[0m
+sending changed CSS file: resources/public/css/screen.css
+sending changed CSS file: resources/public/css/screen.css
+sending changed CSS file: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.379 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.434 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.669 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.393 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.332 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: Unmatched delimiter } on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 76, column 50
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.206 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: Unmatched delimiter } on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 76, column 50
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.276 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: Unmatched delimiter } on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 76, column 49
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.226 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.28 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: Unmatched delimiter } on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 77, column 56
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.151 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: EOF while reading, starting at line 64 and column 1 on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 116, column 1
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.155 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: EOF while reading, starting at line 64 and column 1 on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 116, column 1
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.135 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+[31mCompiling "target/cljsbuild/public/js/app.js" failed.
+[0mERROR: EOF while reading, starting at line 64 and column 1 on file /Users/anonymous/local/tmp/todo/src/cljs/todo/core.cljs, line 116, column 1
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.129 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.246 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.276 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.249 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.362 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.411 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.238 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.229 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+WARNING: Wrong number of args (0) passed to reagent.core/atom at line 61 src/cljs/todo/core.cljs
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.247 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.235 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.263 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.208 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.216 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.265 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.23 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.274 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.289 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.364 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.215 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.364 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.262 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.23 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.217 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.216 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.231 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.237 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.212 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.282 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.349 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.31 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ("src/cljc" "src/cljs" "env/dev/cljs")...
+notifying browser that file changed:  out/todo/core.js
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.268 seconds.[0m
