@@ -1,12 +1,14 @@
 (ns todo.core
   (:require [reagent.core :as r]
             [reagent.session :as session]
+            [reagent.validation :as validation]
             [secretary.core :as secretary :include-macros true]
             [goog.events :as events]
             [goog.history.EventType :as HistoryEventType]
             [markdown.core :refer [md->html]]
             [ajax.core :refer [GET POST PUT DELETE]]
-            [todo.ajax :refer [load-interceptors!]])
+            [todo.ajax :refer [load-interceptors!]]
+            [cljsjs.moment :as moment])
   (:import goog.History))
 
 (enable-console-print!)
@@ -21,7 +23,13 @@
    title])
 
 (defn refresh-app-state! []
-  (GET "/get-all-todos" {:handler         #(reset! app-state (:data %))
+  (GET "/get-all-todos" {:handler         (fn [res]
+                                            (let [t (:data res)
+                                                  mm (map (fn [e]
+                                                            (let [m #(.unix (js/moment (:date_created %)))]
+                                                              (update e :date_created #(m e)))) t)]
+                                              (reset! app-state (sort-by :date_created > mm))))
+
                          :response-format :json
                          :keywords?       true}))
 
@@ -40,18 +48,26 @@
 
 (defn new-todo-form-component []
   [:div.form-group
-   [:form {:class  "form-inline add-form"
-           :action "/add-new-todo" :method "POST"}
-    [:p [:input {:type "text" :name "name" :placeholder "title"}]
-     [:input {:type "text" :name "description" :placeholder "description"}]
+   [:form.form-inline.add-form
+    [:p
+     [:input#name
+      {:type        "text"
+       :name        "name"
+       :placeholder "title"}]
+     [:input#description
+      {:type        "text"
+       :name        "description"
+       :placeholder "description"}]
      [:button.btn.btn-primary.btn-sm
       {:type    "button"
-       :onClick #(POST "/add-new-todo"
-                       {:body    (js/FormData. (.querySelector js/document "form"))
-                        :handler (fn []
-                                   (refresh-app-state!)
-                                   (.reset (.querySelector js/document "form"))
-                                   )})} "Add"]]]])
+       :onClick #(when (and (validation/has-value? (.-value (.querySelector js/document "#name")))
+                            (validation/has-value? (.-value (.querySelector js/document "#description"))))
+                  (POST "/add-new-todo"
+                        {:body    (js/FormData. (.querySelector js/document "form"))
+                         :handler (fn []
+                                    (refresh-app-state!)
+                                    (.reset (.querySelector js/document "form")))}))
+       } "Add"]]]])
 
 (defn todos-component []
   [:ul

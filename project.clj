@@ -36,7 +36,7 @@
                  [luminus-log4j "0.1.3"]
                  [org.clojure/java.jdbc "0.4.2"]
                  [postgresql/postgresql "9.1-901-1.jdbc4"]
-                 [hiccup "1.0.5"]]
+                 [cljsjs/moment "2.10.6-3"]]
 
   :min-lein-version "2.0.0"
 
