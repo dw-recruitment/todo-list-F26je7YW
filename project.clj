@@ -7,7 +7,6 @@
                  [selmer "1.0.2"]
                  [markdown-clj "0.9.86"]
                  [ring-middleware-format "0.7.0"]
-                 [ring/ring-json "0.4.0"]
                  [metosin/ring-http-response "0.6.5"]
                  [bouncer "1.0.0"]
                  [org.webjars/bootstrap "4.0.0-alpha.2"]
@@ -26,6 +25,9 @@
                  [luminus-nrepl "0.1.4"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
                  [luminus-immutant "0.1.9"]
+                 [luminus-migrations "0.1.0"]
+                 [conman "0.4.5"]
+                 [com.h2database/h2 "1.4.191"]
                  [org.clojure/clojurescript "1.7.228" :scope "provided"]
                  [reagent "0.5.1"]
                  [reagent-forms "0.5.21"]
@@ -34,9 +36,8 @@
                  [org.clojure/core.async "0.2.374"]
                  [cljs-ajax "0.5.3"]
                  [luminus-log4j "0.1.3"]
-                 [org.clojure/java.jdbc "0.4.2"]
-                 [postgresql/postgresql "9.1-901-1.jdbc4"]
-                 [cljsjs/moment "2.10.6-3"]]
+                 [cljsjs/moment "2.10.6-3"]
+                 [ring/ring-json "0.4.0"]]
 
   :min-lein-version "2.0.0"
 
@@ -45,8 +46,10 @@
   :resource-paths ["resources" "target/cljsbuild"]
 
   :main todo.core
+  :migratus {:store :database :db ~(get (System/getenv) "DATABASE_URL")}
 
   :plugins [[lein-cprop "1.0.1"]
+            [migratus-lein "0.2.6"]
             [lein-cljsbuild "1.1.1"]]
   :clean-targets ^{:protect false} [:target-path [:cljsbuild :builds :app :compiler :output-dir] [:cljsbuild :builds :app :compiler :output-to]]
   :cljsbuild
@@ -84,9 +87,10 @@
                                  [ring/ring-mock "0.3.0"]
                                  [ring/ring-devel "1.4.0"]
                                  [pjstadig/humane-test-output "0.7.1"]
-                                 [lein-figwheel "0.5.0-6"]
+                                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
                                  [lein-doo "0.1.6"]
-                                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]]
+                                 [lein-figwheel "0.5.0-6"]
+                                 [mvxcvi/puget "1.0.0"]]
                   :plugins [[lein-figwheel "0.5.0-6"] [lein-doo "0.1.6"] [org.clojure/clojurescript "1.7.228"]]
                    :cljsbuild
                    {:builds

@@ -1,17 +1,15 @@
 (ns todo.core
   (:require [todo.handler :as handler]
-            [todo.config :refer [env]]
-            [todo.env :refer [defaults]]
-            [todo.model :as model])
-  (:require [luminus.repl-server :as repl]
+            [luminus.repl-server :as repl]
             [luminus.http-server :as http]
+            [luminus-migrations.core :as migrations]
+            [todo.config :refer [env]]
             [clojure.tools.cli :refer [parse-opts]]
             [clojure.tools.logging :as log]
+            [todo.env :refer [defaults]]
             [luminus.logger :as logger]
             [mount.core :as mount])
   (:gen-class))
-
-(def db "jdbc:postgresql://localhost/todos")
 
 (def cli-options
   [["-p" "--port PORT" "Port number"
@@ -50,5 +48,12 @@
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-app)))
 
 (defn -main [& args]
-  (model/create-table! db)
-  (start-app args))
+  (cond
+    (some #{"migrate" "rollback"} args)
+    (do
+      (mount/start #'todo.config/env)
+      (migrations/migrate args (env :database-url))
+      (System/exit 0))
+    :else
+    (start-app args)))
+  

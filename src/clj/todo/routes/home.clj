@@ -1,18 +1,10 @@
 (ns todo.routes.home
-  (:require [todo.model :as model]
-            [todo.layout :as layout])
-  (:require [ring.util.response :refer [response]]
+  (:require [todo.layout :as layout]
+            [clojure.java.jdbc :as jdbc]
+            [todo.db.core :refer [*db*] :as db]
+            [ring.util.response :refer [response]]
             [compojure.core :refer [GET POST PUT DELETE defroutes]]
-            [ring.util.response :refer [redirect]]
             [ring.middleware.multipart-params :refer [wrap-multipart-params]]))
-
-(def db "jdbc:postgresql://localhost/todos")
-
-(let []
-  (when (nil? (model/get-todos db))
-    (do
-      (model/add-todo! db "foo" "desc 1")
-      (model/add-todo! db "bar" "desc 2"))))
 
 (defn home-page []
   (layout/render "home.html"))
@@ -20,7 +12,10 @@
 (defn handle-post-new-todo [req]
   (let [name (get-in req [:params :name])
         description (get-in req [:params :description])
-        transaction (model/add-todo! db name description)]
+        transaction (jdbc/with-db-transaction [t-conn *db*]
+                                              (jdbc/db-set-rollback-only! t-conn)
+                                              (db/add-todo! {:name        name
+                                                             :description description}))]
     (if transaction
       {:status  200
        :headers {"Content-Type" "text/plain"}
@@ -30,9 +25,12 @@
        :body    "no can do!"})))
 
 (defn handle-update-todo [req]
-  (let [id (java.util.UUID/fromString (get-in req [:params :id]))
+  (let [id (get-in req [:params :id])
         checked (true? (get-in req [:params :checked]))
-        transaction (model/update-todo db id checked)]
+        transaction (jdbc/with-db-transaction [t-conn *db*]
+                                              (jdbc/db-set-rollback-only! t-conn)
+                                              (db/update-todo! {:id      id
+                                                                :checked checked}))]
     (if transaction
       {:status  200
        :headers {"Content-Type" "text/plain"}
@@ -42,8 +40,10 @@
        :body    "no can do!"})))
 
 (defn handle-delete-todo [req]
-  (let [id (java.util.UUID/fromString (get-in req [:params :id]))
-        transaction (model/delete-item db id)]
+  (let [id (get-in req [:params :id])
+        transaction (jdbc/with-db-transaction [t-conn *db*]
+                                              (jdbc/db-set-rollback-only! t-conn)
+                                              (db/delete-todo! {:id id}))]
     (if transaction
       {:status  200
        :headers {"Content-Type" "text/plain"}
@@ -52,8 +52,10 @@
        :headers {"Content-Type" "text/plain"}
        :body    "no can do!"})))
 
-(defn handle-get-todos [req]
-  (let [todos (model/get-todos db)]
+(defn handle-get-todos [_]
+  (let [todos (jdbc/with-db-transaction [t-conn *db*]
+                                        (jdbc/db-set-rollback-only! t-conn)
+                                        (db/get-todos))]
     (when todos
       (response {:data todos}))))
 
